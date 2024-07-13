@@ -42,3 +42,44 @@ fun RepositoryHandler.spigotmc(lambda: MavenArtifactRepository.() -> Unit = {}) 
         lambda.invoke(this)
     }
 }
+
+fun RepositoryHandler.sonatype(lambda: MavenArtifactRepository.() -> Unit = {}) {
+    sonatypeCentral(lambda)
+    sonatypeSnapshots(lambda)
+}
+
+fun RepositoryHandler.sonatypeCentral(lambda: MavenArtifactRepository.() -> Unit = {}) {
+    maven("https://oss.sonatype.org/content/repositories/central")  {
+        lambda.invoke(this)
+    }
+}
+
+fun RepositoryHandler.sonatypeSnapshots(lambda: MavenArtifactRepository.() -> Unit = {}) {
+    maven("https://oss.sonatype.org/content/repositories/snapshots")  {
+        lambda.invoke(this)
+    }
+}
+
+fun RepositoryHandler.reposilite(lambda: MavenArtifactRepository.() -> Unit = {}) {
+    reposiliteReleases(lambda)
+    reposiliteSnapshots(lambda)
+    reposiliteMavenCentral(lambda)
+}
+
+fun RepositoryHandler.reposiliteReleases(lambda: MavenArtifactRepository.() -> Unit = {}) {
+    maven("https://maven.reposilite.com/releases") {
+        lambda.invoke(this)
+    }
+}
+
+fun RepositoryHandler.reposiliteSnapshots(lambda: MavenArtifactRepository.() -> Unit = {}) {
+    maven("https://maven.reposilite.com/snapshots") {
+        lambda.invoke(this)
+    }
+}
+
+fun RepositoryHandler.reposiliteMavenCentral(lambda: MavenArtifactRepository.() -> Unit = {}) {
+    maven("https://maven.reposilite.com/maven-central")  {
+        lambda.invoke(this)
+    }
+}
