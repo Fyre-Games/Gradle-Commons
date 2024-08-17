@@ -32,15 +32,15 @@ fun RepositoryHandler.fyreSnapshots(lambda: MavenArtifactRepository.() -> Unit =
 }
 
 fun RepositoryHandler.papermc(lambda: MavenArtifactRepository.() -> Unit = {}) {
-    maven("https://repo.papermc.io/repository/maven-public/") {
-        lambda.invoke(this)
-    }
+    maven("https://repo.papermc.io/repository/maven-public/",action = lambda)
 }
 
 fun RepositoryHandler.spigotmc(lambda: MavenArtifactRepository.() -> Unit = {}) {
-    maven("https://hub.spigotmc.org/nexus/content/repositories/snapshots/") {
-        lambda.invoke(this)
-    }
+    maven("https://hub.spigotmc.org/nexus/content/repositories/snapshots/",action = lambda)
+}
+
+fun RepositoryHandler.dmulloy(lambda: MavenArtifactRepository.() -> Unit = {}) {
+    maven("https://repo.dmulloy2.net/repository/public/",action = lambda)
 }
 
 fun RepositoryHandler.sonatype(lambda: MavenArtifactRepository.() -> Unit = {}) {
@@ -49,15 +49,11 @@ fun RepositoryHandler.sonatype(lambda: MavenArtifactRepository.() -> Unit = {}) 
 }
 
 fun RepositoryHandler.sonatypeCentral(lambda: MavenArtifactRepository.() -> Unit = {}) {
-    maven("https://oss.sonatype.org/content/repositories/central")  {
-        lambda.invoke(this)
-    }
+    maven(url = "https://oss.sonatype.org/content/repositories/central",action = lambda) 
 }
 
 fun RepositoryHandler.sonatypeSnapshots(lambda: MavenArtifactRepository.() -> Unit = {}) {
-    maven("https://oss.sonatype.org/content/repositories/snapshots")  {
-        lambda.invoke(this)
-    }
+    maven(url = "https://oss.sonatype.org/content/repositories/snapshots",action = lambda)
 }
 
 fun RepositoryHandler.reposilite(lambda: MavenArtifactRepository.() -> Unit = {}) {
@@ -67,19 +63,13 @@ fun RepositoryHandler.reposilite(lambda: MavenArtifactRepository.() -> Unit = {}
 }
 
 fun RepositoryHandler.reposiliteReleases(lambda: MavenArtifactRepository.() -> Unit = {}) {
-    maven("https://maven.reposilite.com/releases") {
-        lambda.invoke(this)
-    }
+    maven(url = "https://maven.reposilite.com/releases",action = lambda)
 }
 
 fun RepositoryHandler.reposiliteSnapshots(lambda: MavenArtifactRepository.() -> Unit = {}) {
-    maven("https://maven.reposilite.com/snapshots") {
-        lambda.invoke(this)
-    }
+    maven(url = "https://maven.reposilite.com/snapshots",action = lambda)
 }
 
 fun RepositoryHandler.reposiliteMavenCentral(lambda: MavenArtifactRepository.() -> Unit = {}) {
-    maven("https://maven.reposilite.com/maven-central")  {
-        lambda.invoke(this)
-    }
+    maven(url = "https://maven.reposilite.com/maven-central",action = lambda)
 }
