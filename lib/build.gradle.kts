@@ -29,7 +29,7 @@ publishing {
 
     repositories {
 
-        maven("https://maven.fyre.cc/releases") {
+        maven("https://maven.fyre.services/releases") {
             name = "fyreReleases"
         }
 

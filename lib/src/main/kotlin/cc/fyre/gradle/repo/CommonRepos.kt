@@ -11,21 +11,21 @@ fun RepositoryHandler.fyre(lambda: MavenArtifactRepository.() -> Unit = {}) {
 }
 
 fun RepositoryHandler.fyreGames(lambda: MavenArtifactRepository.() -> Unit = {}) {
-    maven("https://maven.fyre.cc/games") {
+    maven("https://maven.fyre.services/games") {
         name = "fyreGames"
         lambda.invoke(this)
     }
 }
 
 fun RepositoryHandler.fyreReleases(lambda: MavenArtifactRepository.() -> Unit = {}) {
-    maven("https://maven.fyre.cc/releases") {
+    maven("https://maven.fyre.services/releases") {
         name = "fyreReleases"
         lambda.invoke(this)
     }
 }
 
 fun RepositoryHandler.fyreSnapshots(lambda: MavenArtifactRepository.() -> Unit = {}) {
-    maven("https://maven.fyre.cc/snapshots") {
+    maven("https://maven.fyre.services/snapshots") {
         name = "fyreSnapshots"
         lambda.invoke(this)
     }
